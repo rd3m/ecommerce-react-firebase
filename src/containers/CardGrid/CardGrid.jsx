@@ -7,7 +7,7 @@ import {
     // updateColleagues,
     // createColleague,
 } from "../../services/products";
-import Card from "../Card";
+import Card from "../../components/Card";
 // import CreateCard from "./components/CreateCard";
 
 const CardGrid = () => {
