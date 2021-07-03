@@ -3,7 +3,7 @@ import "./App.module.scss";
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
-import CardGrid from "./containers/CardGrid";
+import Products from "./containers/Products";
 import Carousel from "./containers/Carousel";
 import Hero from "./containers/Hero";
 import Footer from "./containers/Footer";
@@ -16,9 +16,14 @@ const App = () => {
                 <Header />
             </header>
             <body>
+                {/* <Switch> */}
                 <Hero />
-                <CardGrid />
+                {/* <Route path="/products"> */}
+                <Products />
+                {/* </Route> */}
+
                 <Carousel />
+                {/* </Switch> */}
             </body>
             <footer>
                 <Footer />

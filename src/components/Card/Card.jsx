@@ -1,20 +1,12 @@
-import { useEffect, useState } from "react";
 import styles from "./Card.module.scss";
 
-// import Counter from "../Counter";
+const Card = ({ product, onAddToCart, onRemoveFromCart, isInCart }) => {
+    const handleCartAdd = (event) => {
+        onAddToCart(product.id);
+    };
 
-const Card = ({ product, onDelete, onChange }) => {
-    // const [browniePoints, setBrowniePoint] = useState(colleague.brownies || 0);
-
-    // useEffect(() => {
-    //     onChange({
-    //         ...colleague,
-    //         brownies: browniePoints,
-    //     });
-    // }, [browniePoints]);
-
-    const handleDelete = (event) => {
-        onDelete(product.id);
+    const handleCartRemove = (event) => {
+        onRemoveFromCart(product.id);
     };
 
     return (
@@ -22,17 +14,15 @@ const Card = ({ product, onDelete, onChange }) => {
             <h2>
                 {product.name} ${product.price}
             </h2>
-
             {product.variants.map((variant) => (
                 <p>{variant}</p>
             ))}
-            {/* <p>{product.variants[0]}</p> */}
-            {/* <p>Age: {colleague.age}</p> */}
-            <button onClick={handleDelete}>Delete</button>
-            {/* <div>
-                Brownie Points:{" "}
-                <Counter value={browniePoints} onChange={setBrowniePoint} />
-            </div> */}
+
+            {isInCart ? (
+                <button onClick={handleCartRemove}>Remove from Cart</button>
+            ) : (
+                <button onClick={handleCartAdd}>Add to Cart</button>
+            )}
         </div>
     );
 };

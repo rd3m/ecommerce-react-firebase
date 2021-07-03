@@ -44,6 +44,16 @@ export const getProducts = async () => {
     return documents.map((doc) => ({ id: doc.id, ...doc.data() }));
 };
 
+export const getCart = async () => {
+    const col = firestore.collection("cart");
+    const queryData = await col.get();
+
+    // QuerySnapshot.docs => Array<QueryDocumentSnapshot>
+    const documents = queryData.docs;
+
+    return documents.map((doc) => ({ id: doc.id, ...doc.data() }));
+};
+
 // D in CRUD
 export const deleteProduct = async (id) => {
     // DocumentReference
@@ -52,13 +62,25 @@ export const deleteProduct = async (id) => {
     await col.delete();
 };
 
-// // U in CRUD
-// export const updateColleagues = async (id, record) => {
-//     const ref = firestore.collection("colleagues").doc(id);
-//     await ref.update(record);
-// };
+export const removeFromCart = async (id) => {
+    const col = firestore.collection("cart").doc(id);
+    await col.delete();
+};
 
-// export const createColleague = async (record) => {
-//     const col = firestore.collection("colleagues");
+// U in CRUD
+export const updateProducts = async (id, record) => {
+    const ref = firestore.collection("products").doc(id);
+    await ref.update(record);
+};
+
+// export const createProduct = async (record) => {
+//     const col = firestore.collection("products");
 //     await col.add(record);
 // };
+
+export const addToCart = async (id) => {
+    const doc = firestore.collection("products").doc(id);
+    const product = await doc.get();
+    const cart = firestore.collection("cart");
+    await cart.add(product.data());
+};

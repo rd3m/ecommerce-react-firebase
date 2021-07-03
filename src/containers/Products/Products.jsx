@@ -1,38 +1,36 @@
 import styles from "../../App.module.scss";
 
 import { useState, useEffect } from "react";
-import { getCart, removeFromCart } from "../../services/productsList";
+import { getProducts, addToCart } from "../../services/productsList";
 import Card from "../../components/Card";
 
-const Cart = () => {
-    const [cart, setCart] = useState([]);
+const Products = () => {
+    const [products, setProducts] = useState([]);
 
     const getData = async () => {
-        const data = await getCart();
-        setCart(data);
+        const data = await getProducts();
+        setProducts(data);
     };
 
     useEffect(() => {
         getData();
     }, []);
 
-    const handleRemoveFromCart = async (id) => {
-        await removeFromCart(id);
-        getData();
+    const handleAddToCart = async (id) => {
+        await addToCart(id);
     };
 
     return (
         <>
             <div>
-                <h1>Cart</h1>
+                <h1>Products</h1>
             </div>
             <div className={styles.App}>
-                {cart.map((product) => (
+                {products.map((product) => (
                     <Card
                         key={product.id}
-                        onRemoveFromCart={handleRemoveFromCart}
+                        onAddToCart={handleAddToCart}
                         product={product}
-                        isInCart={true}
                     />
                 ))}
             </div>
@@ -40,4 +38,4 @@ const Cart = () => {
     );
 };
 
-export default Cart;
+export default Products;
