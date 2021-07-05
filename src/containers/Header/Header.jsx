@@ -1,4 +1,4 @@
-import Cart from "../../components/Cart";
+import Cart from "../Cart";
 import Navbar from "../../components/Navbar";
 import BrandBanner from "../../components/BrandBanner";
 
@@ -7,7 +7,6 @@ const Header = () => {
         <div>
             <BrandBanner />
             <Navbar />
-            <Cart />
         </div>
     );
 };

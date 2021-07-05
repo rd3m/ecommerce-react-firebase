@@ -6,6 +6,8 @@
     max-width: 60vw;
     margin: 0 auto;
     position: relative;
+    list-style-type: none;
+    text-decoration: none;
 
     &__item {
         font-family: "Poppins", sans-serif;
@@ -20,4 +22,8 @@
     &__container {
         align-items: center;
     }
+}
+
+.Cart {
+    justify-content: right;
 }

@@ -1,13 +1,13 @@
-import "./App.module.scss";
+// import "./App.module.scss";
 
 import React from "react";
 import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 
 import Products from "./containers/Products";
-import Carousel from "./containers/Carousel";
-import Hero from "./containers/Hero";
+import Product from "./containers/Product";
 import Footer from "./containers/Footer";
 import Header from "./containers/Header";
+import Cart from "./containers/Cart";
 
 const App = () => {
     return (
@@ -15,16 +15,19 @@ const App = () => {
             <header>
                 <Header />
             </header>
-            <body>
-                {/* <Switch> */}
-                <Hero />
-                {/* <Route path="/products"> */}
-                <Products />
-                {/* </Route> */}
+            <Switch>
+                <Route exact path="/">
+                    <Products />
+                </Route>
+                <Route exact path="/products">
+                    <Products />
+                </Route>
 
-                <Carousel />
-                {/* </Switch> */}
-            </body>
+                <Route path="/cart" component={Cart} />
+                <Route path="/products/:id">
+                    <Product />
+                </Route>
+            </Switch>
             <footer>
                 <Footer />
             </footer>
