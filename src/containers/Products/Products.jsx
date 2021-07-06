@@ -3,7 +3,8 @@ import styles from "./Products.module.scss";
 import { useState, useEffect } from "react";
 import { getProducts, addToCart } from "../../services/productsList";
 import { Link } from "react-router-dom";
-import { ProductsCrud, CartCrud } from "../../services/crud";
+import { ProductsCrud } from "../../services/productsCrud";
+import { CartCrud } from "../../services/cartCrud";
 
 const Products = () => {
     const [products, setProducts] = useState([]);

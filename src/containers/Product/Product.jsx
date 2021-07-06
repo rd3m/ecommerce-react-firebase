@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import { ProductsCrud } from "../../services/crud";
+import { ProductsCrud } from "../../services/productsCrud";
 
 const Product = () => {
     const { id } = useParams();
