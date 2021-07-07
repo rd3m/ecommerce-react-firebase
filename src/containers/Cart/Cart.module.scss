@@ -1,0 +1,14 @@
+.Cart {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 1vw;
+    justify-content: space-between;
+    max-width: 90vw;
+    margin: auto;
+
+    &_page {
+        display: flex;
+        justify-content: center;
+        margin: 1rem;
+    }
+}

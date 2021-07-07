@@ -1,10 +1,8 @@
 import styles from "./Products.module.scss";
 
 import { useState, useEffect } from "react";
-import { getProducts, addToCart } from "../../services/productsList";
 import { Link } from "react-router-dom";
 import { ProductsCrud } from "../../services/productsCrud";
-import { CartCrud } from "../../services/cartCrud";
 
 const Products = () => {
     const [products, setProducts] = useState([]);
@@ -18,22 +16,19 @@ const Products = () => {
         getData();
     }, []);
 
-    const handleAddToCart = async (product) => {
-        await CartCrud.addProductToCart(product);
-    };
-
     return (
         <div className={styles.Grid}>
             {products.map((product) => (
                 <div key={product.id} className={styles.Product}>
-                    <h2>{product.name}</h2>
                     <Link to={`/products/${product.id}`}>
-                        Link to Product Page
+                        <img
+                            className={styles.Products_img}
+                            src={[product.img]}
+                            alt="product image"
+                        />
                     </Link>
+                    <p>{product.name}</p>
                     <p>${product.price}</p>
-                    <button onClick={() => handleAddToCart(product)}>
-                        Add to Cart
-                    </button>
                 </div>
             ))}
         </div>

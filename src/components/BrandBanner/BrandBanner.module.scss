@@ -1,7 +1,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap");
 .banner {
     font-family: "Playfair Display", serif;
-    color: #545454;
+    color: #f7f7ef;
     letter-spacing: 10px;
     text-align: center;
+    font-size: 10vh;
+    background-color: #545454;
+    margin: 0;
+    padding: 0.65em;
+}
+
+.cart_link {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    color: #f7f7ef;
 }

@@ -6,10 +6,6 @@ export const countDupesArray = (array) => {
     return counts;
 };
 
-// export const removeDupesArray = (array) => {
-//     return [...new Set(array)];
-// };
-
 export const removeDupesArray = (arr) => {
     return arr.reduce((acc, current) => {
         const x = acc.find((item) => item.id === current.id);

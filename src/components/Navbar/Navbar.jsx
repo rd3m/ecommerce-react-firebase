@@ -9,14 +9,9 @@ const Navbar = () => {
                     <Link to="/" className={styles.navbar__item}>
                         home
                     </Link>
-                    <Link className={styles.navbar__item}>clothing</Link>
+                    <Link className={styles.navbar__item}>glasses</Link>
                     <Link className={styles.navbar__item}>shoes</Link>
                     <Link className={styles.navbar__item}>accessories</Link>
-                </div>
-                <div>
-                    <Link to="/cart" className={styles.Cart}>
-                        Cart
-                    </Link>
                 </div>
             </div>
         </div>

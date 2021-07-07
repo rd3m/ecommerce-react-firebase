@@ -1,4 +1,4 @@
-import styles from "../Products/Products.module.scss";
+import styles from "../Cart/Cart.module.scss";
 
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
@@ -26,29 +26,32 @@ const Cart = () => {
     };
 
     return (
-        <>
+        <div className={styles.Cart_page}>
             <div>
                 <h1>Cart</h1>
                 <h3>Total: ${cartTotal}</h3>
             </div>
-            <div className={styles.Grid}>
+            <div className={styles.Cart}>
                 {cart.map((product) => (
-                    <div key={product.id} className={styles.Product}>
-                        <h2>{product.name}</h2>
-                        <Link to={`/products/${product.link}`}>
-                            Link to Product Page
-                        </Link>
-                        <p>${product.price}</p>
-                        <p>Qty: {product.qty}</p>
-                        <button
-                            onClick={() => handleRemoveFromCart(product.id)}
-                        >
-                            Remove from Cart
-                        </button>
+                    <div key={product.id} className={styles.Cart}>
+                        <img src={[product.img]} alt="product image" />
+                        <div>
+                            <h2>{product.name}</h2>
+                            <Link to={`/products/${product.link}`}>
+                                Link to Product Page
+                            </Link>
+                            <p>${product.price}</p>
+                            <p>Qty: {product.qty}</p>
+                            <button
+                                onClick={() => handleRemoveFromCart(product.id)}
+                            >
+                                Remove from Cart
+                            </button>
+                        </div>
                     </div>
                 ))}
             </div>
-        </>
+        </div>
     );
 };
 
