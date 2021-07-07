@@ -22,7 +22,10 @@ const Footer = () => {
                     Subscribe to receive updates, access to exclusive deals, and
                     more.
                 </p>
-                <input type="email" placeholder="Enter your email address" />
+                <input type="email" placeholder="Enter your email" />
+                <div>
+                    <button>Subscribe</button>
+                </div>
             </div>
         </div>
     );

@@ -14,5 +14,14 @@
     position: absolute;
     top: 100px;
     right: 100px;
-    color: #f7f7ef;
+    color: #545454;
+    background-color: #f7f7ef;
+    height: 60px;
+    width: 60px;
+    font-size: 40px;
+    text-align: center;
+
+    &:hover {
+        background-color: rgba(0, 250, 0, 0.6);
+    }
 }

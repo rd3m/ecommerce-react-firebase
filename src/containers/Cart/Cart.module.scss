@@ -9,6 +9,10 @@
     &_page {
         display: flex;
         justify-content: center;
-        margin: 1rem;
+        margin: rem;
+    }
+
+    &_headings {
+        min-width: 20vw;
     }
 }

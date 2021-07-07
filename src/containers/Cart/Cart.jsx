@@ -17,7 +17,7 @@ const Cart = () => {
 
     useEffect(() => {
         getData();
-        CartCrud.cartCleanUp();
+        // CartCrud.cartCleanUp();
     }, []);
 
     const handleRemoveFromCart = async (id) => {
@@ -27,7 +27,7 @@ const Cart = () => {
 
     return (
         <div className={styles.Cart_page}>
-            <div>
+            <div className={styles.Cart_headings}>
                 <h1>Cart</h1>
                 <h3>Total: ${cartTotal}</h3>
             </div>
@@ -42,6 +42,7 @@ const Cart = () => {
                             </Link>
                             <p>${product.price}</p>
                             <p>Qty: {product.qty}</p>
+                            <p>Magnification: {product.variants}</p>
                             <button
                                 onClick={() => handleRemoveFromCart(product.id)}
                             >

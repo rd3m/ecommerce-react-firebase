@@ -8,3 +8,12 @@
 img {
     max-width: 30vw;
 }
+
+.notification {
+    position: absolute;
+    top: 50vh;
+    right: 2vw;
+
+    &_hide {
+    }
+}

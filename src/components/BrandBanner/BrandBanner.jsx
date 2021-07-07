@@ -1,5 +1,7 @@
 import styles from "../BrandBanner/BrandBanner.module.scss";
 import { Link } from "react-router-dom";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faShoppingBag } from "@fortawesome/free-solid-svg-icons";
 
 const BrandBanner = () => {
     return (
@@ -10,7 +12,10 @@ const BrandBanner = () => {
 
             <div>
                 <Link to="/cart" className={styles.cart_link}>
-                    Cart
+                    <FontAwesomeIcon
+                        id={styles.cartIcon}
+                        icon={faShoppingBag}
+                    />
                 </Link>
             </div>
         </div>
