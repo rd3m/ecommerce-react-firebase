@@ -17,7 +17,6 @@ const Cart = () => {
 
     useEffect(() => {
         getData();
-        // CartCrud.cartCleanUp();
     }, []);
 
     const handleRemoveFromCart = async (id) => {
@@ -37,9 +36,6 @@ const Cart = () => {
                         <img src={[product.img]} alt="product image" />
                         <div>
                             <h2>{product.name}</h2>
-                            <Link to={`/products/${product.link}`}>
-                                Link to Product Page
-                            </Link>
                             <p>${product.price}</p>
                             <p>Qty: {product.qty}</p>
                             <p>Magnification: {product.variants}</p>

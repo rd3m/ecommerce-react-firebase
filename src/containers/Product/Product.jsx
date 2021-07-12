@@ -11,12 +11,12 @@ const Product = () => {
     const [variantChoice, setVariantChoice] = useState("1.00");
     const [qtyChoice, setQtyChoice] = useState(1);
 
-    useEffect(() => {
-        const getData = async () => {
-            const data = await ProductsCrud.get(id);
-            setProduct(data);
-        };
+    const getData = async () => {
+        const data = await ProductsCrud.get(id);
+        setProduct(data);
+    };
 
+    useEffect(() => {
         getData();
     }, []);
 
@@ -38,8 +38,8 @@ const Product = () => {
         <>
             {product ? (
                 <div className={styles.product__page}>
-                    <img src={[product.img]} alt="product image" />
-                    <div>
+                    <img src={[product.img]} alt="product" />
+                    <div className={styles.product__details}>
                         <h3>{product.name}</h3>
                         <h3>${product.price}</h3>
                         <label for="variants">Magnification: </label>
@@ -58,8 +58,9 @@ const Product = () => {
                                 type="number"
                                 id="qty"
                                 name="qty"
-                                min="0"
+                                min="1"
                                 max="10"
+                                value={qtyChoice}
                                 onChange={handleQty}
                             ></input>
                         </div>
@@ -68,6 +69,15 @@ const Product = () => {
                             <button onClick={() => handleAddToCart(product)}>
                                 Add to Cart
                             </button>
+                        </div>
+                        <div>
+                            <p>
+                                Lorem ipsum dolor sit amet consectetur
+                                adipisicing elit. Accusantium ullam libero ipsam
+                                ipsa! Libero quos placeat voluptatem provident
+                                vel consequatur illum. Quaerat itaque rem ipsam
+                                similique nemo dicta odit nulla!
+                            </p>
                         </div>
                     </div>
                     {/* <div className={styles.notification}>

@@ -1,5 +1,4 @@
 import { CRUD } from "./crud";
-import { countDupesArray, removeDupesArray } from "./utils";
 
 export class CartCrud extends CRUD {
     static collection = "cart";
@@ -23,7 +22,13 @@ export class CartCrud extends CRUD {
 
     static async addProductToCart(product) {
         const cart = await this.getCart();
-        product.link = product.id;
+        let i = cart.products.length;
+        while (i--) {
+            if (cart.products[i].id === product.id) {
+                product.qty += cart.products[i].qty;
+                cart.products.splice(i, 1);
+            }
+        }
         cart.products.push(product);
         await this.update(this.cartId, cart);
     }

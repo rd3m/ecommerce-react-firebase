@@ -9,7 +9,8 @@
     &_page {
         display: flex;
         justify-content: center;
-        margin: rem;
+        margin: 2rem;
+        min-height: 60vh;
     }
 
     &_headings {

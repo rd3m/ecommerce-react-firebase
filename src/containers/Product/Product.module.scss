@@ -1,19 +1,25 @@
-.product__page {
-    display: flex;
-    padding: 5vw;
-    justify-content: space-around;
-    max-width: 70vw;
+.product {
+    &__page {
+        display: flex;
+        padding: 5vw;
+        justify-content: space-around;
+        max-width: 90vw;
+    }
+
+    &__details {
+        margin-left: 10vw;
+    }
 }
 
 img {
     max-width: 30vw;
 }
 
-.notification {
-    position: absolute;
-    top: 50vh;
-    right: 2vw;
+// .notification {
+//     position: absolute;
+//     top: 50vh;
+//     right: 2vw;
 
-    &_hide {
-    }
-}
+//     &_hide {
+//     }
+// }
